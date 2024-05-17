@@ -134,9 +134,5 @@ class KNNModifiedClassifier:
         return correlationed_diff.sum()
 
 
-    def set_params(self, **params):
-        for param, value in params.items():
-            setattr(self, param, value)
-        return self
 
 
