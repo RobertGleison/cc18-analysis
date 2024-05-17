@@ -1,0 +1,14 @@
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc 
+*.lock
+
+
+# vscode
+.vscode/
