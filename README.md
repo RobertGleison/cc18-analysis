@@ -1,31 +1,25 @@
 # CC18 - Curated Datasets Analysis
-<style>p {text-align: justify;}</style>
 This project analyzes datasets from the OpenML CC18 collection for a Machine Learning course. The goal is to explore various machine learning models, identify datasets that perform poorly with specific models, and attempt to improve performance through modifications.
 
 ## Work developed
 
 ### 1. Module: exploration
-<style>p {text-align: justify;}</style>
 The datasets of CC18 were separated into 3 subgroups based on the target feature: multiclass, balanced binary and imbalanced binary. Different models (decision tree, KNN, and SVM) with varying hyperparameters were applied to each dataset subgroup.
 GridSearchCV was used to collect performance metrics (precision, accuracy, recall, and ROC AUC) for each model-dataset combination. 
 
 ### 2. Module: analysis
-<style>p {text-align: justify;}</style>
 The datasets with the poorest performance within each subgroup were analyzed to identify potential common characteristics. For example, in the balanced binary subgroup, accuracy and ROC AUC were considered appropriate metrics (recall and precision were excluded due to the large number of datasets and the absence of individual analysis). Specific datasets with the lowest accuracy were then examined. This approach was repeated for imbalanced binary datasets using ROC AUC and multiclass datasets using ROC AUC macro. The imbalanced binary datasets were chosen for model modification using the KNN model. 
 
 ### 3. Module: modifications
-<style>p {text-align: justify;}</style>
 Based on the hypothesis that noisy features might be contributing to the poor performance of the worst-scoring KNN datasets,
 the project aims to mitigate this issue. Details of the mitigation approach are presented in the next section. The code for this modification can be found in the modification module.
 
 
 ### 4. Module: evaluation
-<style>p {text-align: justify;}</style>
 This section details the testing process for the modifications applied to the imbalanced binary datasets using the KNN model. The goal is to assess whether the modifications improve the model's performance on these datasets.
 
 
 ## KNN Modification
-<style>p {text-align: justify;}</style>
 This step explores mitigating poor KNN performance on imbalanced datasets without a data preprocessing step.
 We propose a modification to the distance calculation process that considers in apply the feature correlations in it.
  
@@ -33,7 +27,7 @@ We created a new implementation for the
 weights hyperparameter called correlations. It modifies the Manhattan distance calculation (from scipy.distance)  by incorporating the feature correlations with the target variable during distance computation. This ensures that even if features with high noise have similar values, they probably won't be considered as a nearest neighbor.
 
 
-![alt text](image.png)
+![alt text](image-1.png)
 
 **Correlation Calculation:**
 
