@@ -54,7 +54,7 @@ def k_fold_cross_validation_stratified(X, y, model, n_test: int = 15) -> float:
 
 def process_dataset(dataset_id):
     try:
-        df = pd.read_csv(f'./files_csv/csv_tests/dataset_{dataset_id}.csv')
+        df = pd.read_csv(f'files_csv/csv_tests/dataset_{dataset_id}.csv')
 
         categorical_columns = [column for column in df.columns if df[column].dtype == object]
 
@@ -92,16 +92,17 @@ def process_dataset(dataset_id):
     except Exception as e:
         print(f"Error processing dataset {dataset_id}: {str(e)}")
 
-dataset_ids = [167124, 167140]
+dataset_ids = [3, 167140]
 
 # nao_rodados = 146820 167125 167141 167120 14969
 
-# for dataset_id in dataset_ids:
-#     process_dataset(dataset_id)
+for dataset_id in dataset_ids:
+    process_dataset(dataset_id)
 
     
-csv_results_folder = './files_csv/csv_results'
-concatenate_csv(csv_results_folder)
+csv_results_folder = 'files_csv/csv_results'
+# df=pd.read_csv('files_csv/csv_tests/dataset_3.csv')
+# concatenate_csv(csv_results_folder)
 
 
 
