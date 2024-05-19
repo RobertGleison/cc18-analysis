@@ -27,7 +27,8 @@ We created a new implementation for the
 weights hyperparameter called correlations. It modifies the Manhattan distance calculation (from scipy.distance)  by incorporating the feature correlations with the target variable during distance computation. This ensures that even if features with high noise have similar values, they probably won't be considered as a nearest neighbor.
 
 
-![alt text](image-1.png)
+<img src='assets/image-1.png'>
+
 
 **Correlation Calculation:**
 

@@ -15,7 +15,7 @@ warnings.filterwarnings("ignore")
 
 def separate_dataset_characteristics(benchmark: str ="OpenML-CC18", disbalance_threshold: float = 0.3) -> dict:
     benchmark_suite = openml.study.get_suite(benchmark)
-    subset_benchmark_suite = benchmark_suite.tasks[0:50]
+    subset_benchmark_suite = benchmark_suite.tasks[50:70]
     disbalanced_binary_tasks = []
     balanced_binary_tasks = []
     multiclass_tasks = []

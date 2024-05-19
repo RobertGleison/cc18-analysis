@@ -47,14 +47,14 @@ def k_fold_cross_validation_stratified(X, y, model, n_test: int = 15) -> float:
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
         accuracies.append(accuracy_score(y_test, y_pred))
-        roc_auc.append(roc_auc_score(y_test, y_pred))
+        roc_auc.append(roc_auc_score(y_test, y_pred, multi_class='ovr'))
 
     return np.mean(accuracies), np.mean(roc_auc)
 
 
 def process_dataset(dataset_id):
     try:
-        df = pd.read_csv('./files_csv/csv_tests/dataset_9971.csv')
+        df = pd.read_csv(f'./files_csv/csv_tests/dataset_{dataset_id}.csv')
 
         categorical_columns = [column for column in df.columns if df[column].dtype == object]
 
@@ -92,10 +92,12 @@ def process_dataset(dataset_id):
     except Exception as e:
         print(f"Error processing dataset {dataset_id}: {str(e)}")
 
-dataset_ids = [3,6,11,12,14,15,16,18,22,23,28,29,31,32,37,43,45,49,53,219,2074,2079,3021,3022,3481,3549,3560,3573,3902,3904,3913,3917,3918,7592,9910,9946,9952,9957,9971,9976,9977,9978,10093,10101,14952]
+dataset_ids = [167124, 167140]
+
+# nao_rodados = 146820 167125 167141 167120 14969
 
 # for dataset_id in dataset_ids:
-    # process_dataset(dataset_id)
+#     process_dataset(dataset_id)
 
     
 csv_results_folder = './files_csv/csv_results'
