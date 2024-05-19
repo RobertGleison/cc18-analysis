@@ -1,0 +1,29 @@
+Estrutura do Projeto:
+
+files_csv: Este diretório armazena os arquivos CSV utilizados no projeto. A maioria dos arquivos foi deletada para manter o projeto organizado, restando apenas os mais importantes. Os arquivos principais incluem:
+
+    metrics_knn.csv: Contém as métricas de avaliação do KNN padrão em diferentes datasets do cc18, com diferentes parâmetros.
+    combined_metrics.csv: Um CSV concatenado que inclui as informações de avaliação do KNN modificado com vários parâmetros para cada conjunto de dados. Outros arquivos CSV serão utilizados nas análises no Jupyter Notebook.
+
+A_exploration: Módulo com os códigos utilizados para criar o arquivo metrics_knn.csv, que contém métricas de avaliação do KNN padrão nos datasets do CC18, utilizando diversos parâmetros.
+
+B_analysis: Arquivo de análise do metrics_knn.csv para identificar padrões nos datasets mal avaliados pelo KNN default, a fim de aumentar a robustez do modelo para esses casos.
+
+C_Modifications: Diretório que contém o código do KNN modificado. Inclui:
+
+    reference_knn.py: Arquivo disponibilizado no GitHub.
+    modified_knn_analysis.ipynb: Notebook de análise das modificações feitas no KNN para os mesmos datasets que tiveram uma má avaliação no arquivo cc18_analysis.ipynb.
+    manual_tests.py: Gera as métricas em fomrato -csv de cada dataset utilizando o KNN modificado e, ao final, concatena todos os resultados em um único arquivo.
+
+D_-evaluation:
+
+    download_test_datasets.py: Script para baixar os datasets do cc18 em formato CSV local, permitindo a avaliação pelo KNN modificado.
+    metrics_comparison.ipynb: Notebook de análise final das métricas extraídas de KNN modificado.
+
+
+
+
+Na prática, Só se vai usar os arquivos de análise: 
+- B_analysis.cc18_analysis.ipynb
+- C_Modifications.modified_knn_analysis.ipynb
+- D_evaluation.metrics_comparison.ipynb
